@@ -69,19 +69,19 @@ open class RequestModel: Codable {
             }
         }
         
-        //  collect cookies associated with the target host
-        //  TODO: Add the else branch.
-        /*  With the condition below, it is handled only the case where session.configuration.httpShouldSetCookies == true.
-            Some developers could opt to handle cookie manually using the "Cookie" header stored in httpAdditionalHeaders
-            and disabling the handling provided by URLSessionConfiguration (httpShouldSetCookies == false).
-            See: https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/1411589-httpshouldsetcookies?language=objc
-        */
-        if let session = session, let url = request.url, session.configuration.httpShouldSetCookies {
-            if let cookieStorage = session.configuration.httpCookieStorage,
-                let cookies = cookieStorage.cookies(for: url), !cookies.isEmpty {
-                self.cookies = cookies.reduce("") { $0 + "\($1.name)=\($1.value);" }
-            }
-        }
+//        //  collect cookies associated with the target host
+//        //  TODO: Add the else branch.
+//        /*  With the condition below, it is handled only the case where session.configuration.httpShouldSetCookies == true.
+//            Some developers could opt to handle cookie manually using the "Cookie" header stored in httpAdditionalHeaders
+//            and disabling the handling provided by URLSessionConfiguration (httpShouldSetCookies == false).
+//            See: https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/1411589-httpshouldsetcookies?language=objc
+//        */
+//        if let session = session, let url = request.url, session.configuration.httpShouldSetCookies {
+//            if let cookieStorage = session.configuration.httpCookieStorage,
+//                let cookies = cookieStorage.cookies(for: url), !cookies.isEmpty {
+//                self.cookies = cookies.reduce("") { $0 + "\($1.name)=\($1.value);" }
+//            }
+//        }
     }
     
     func initResponse(response: URLResponse) {
