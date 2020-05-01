@@ -41,12 +41,12 @@ open class RequestModel: Codable {
         
         
         // collect all HTTP Request headers except the "Cookie" header. Many request representations treat cookies with special parameters or structures. For cookie collection, refer to the bottom part of this method
-        session?.configuration.httpAdditionalHeaders?
-            .filter {  $0.0 != AnyHashable("Cookie") }
-            .forEach { element in
-                guard let key = element.0 as? String, let value = element.1 as? String else { return }
-                headers[key] = value
-        }
+//        session?.configuration.httpAdditionalHeaders?
+//            .filter {  $0.0 != AnyHashable("Cookie") }
+//            .forEach { element in
+//                guard let key = element.0 as? String, let value = element.1 as? String else { return }
+//                headers[key] = value
+//        }
         self.headers = headers
         
         // if the target server uses HTTP Basic Authentication, collect username and password
